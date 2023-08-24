@@ -129,7 +129,7 @@ def get_args_parser():
     parser.add_argument('--weak_label_header', default='Unique_Compounds', type=str) # change weak label here (see .csv headers)
     return parser
 
-df = pd.read_csv('.../BBBC021_annotated_reproduction.csv')
+df = pd.read_csv('BBBC021_annotated_reproduction.csv')
 
 idx_list = []
 weight_list = []
