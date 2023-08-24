@@ -116,7 +116,7 @@ def get_args_parser():
         Used for small local view cropping of multi-crop.""")
 
     # Misc
-    parser.add_argument('--data_path', default=(f'/projects/img/GAN_CP/PAPER_2/BBBC021/BBBC021_annotated_no_DMSO _Guy.csv'), type=str,
+    parser.add_argument('--data_path', default=(f'BBBC021_annotated_reproduction.csv'), type=str,
         help='Please specify path to the ImageNet training data.')
     parser.add_argument('--output_dir', default=".", type=str, help='Path to save logs and checkpoints.')
     parser.add_argument('--saveckp_freq', default=5, type=int, help='Save checkpoint every x epochs.')
@@ -129,7 +129,7 @@ def get_args_parser():
     parser.add_argument('--weak_label_header', default='Unique_Compounds', type=str) # change weak label here (see .csv headers)
     return parser
 
-df = pd.read_csv('.../BBBC021_annotated.csv')
+df = pd.read_csv('.../BBBC021_annotated_reproduction.csv')
 
 idx_list = []
 weight_list = []
