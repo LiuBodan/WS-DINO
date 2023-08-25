@@ -19,8 +19,8 @@ from sklearn.preprocessing import MultiLabelBinarizer
 mlb = MultiLabelBinarizer()
 from sklearn.decomposition import PCA as sk_PCA
 
-x0train = pd.read_csv(f'.../BBBC021_annotated.csv')
-x0DMSO = pd.read_csv(f'.../BBBC021_DMSO.csv')
+x0train = pd.read_csv(f'BBBC021_annotated_reproduction.csv')
+x0DMSO = pd.read_csv(f'BBBC021_DMSO_reproduction.csv')
 
 num_classes = 12
 
@@ -494,7 +494,7 @@ if __name__ == '__main__':
     parser.add_argument("--dist_url", default="env://", type=str, help="""url used to set up
         distributed training; see https://pytorch.org/docs/stable/distributed.html""")
     parser.add_argument("--local_rank", default=0, type=int, help="Please ignore and do not set this argument.")
-    parser.add_argument('--data_path_train', default=(f'/BBBC021_annotated.csv'), type=str)
+    parser.add_argument('--data_path_train', default=(f'BBBC021_annotated_reproduction.csv'), type=str)
     parser.add_argument('--channel_headers', default= ['Image_FileName_DAPI','Image_FileName_Tubulin', 'Image_FileName_Actin'], type=list)
 
     args = parser.parse_args()
