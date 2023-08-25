@@ -86,9 +86,9 @@ def get_args_parser():
     parser.add_argument('--clip_grad', type=float, default=0, help="""Maximal parameter
         gradient norm if using gradient clipping. Clipping with norm .3 ~ 1.0 can
         help optimization for larger ViT architectures. 0 for disabling.""")
-    parser.add_argument('--batch_size_per_gpu', default=24, type=int,
+    parser.add_argument('--batch_size_per_gpu', default=26, type=int,
         help='Per-GPU batch-size : number of distinct images loaded on one GPU.')
-    parser.add_argument('--epochs', default=300, type=int, help='Number of epochs of training.')
+    parser.add_argument('--epochs', default=400, type=int, help='Number of epochs of training.')
     parser.add_argument('--freeze_last_layer', default=1, type=int, help="""Number of epochs
         during which we keep the output layer fixed. Typically doing so during
         the first epoch helps training. Try increasing this value if the loss does not decrease.""")
@@ -116,7 +116,7 @@ def get_args_parser():
         Used for small local view cropping of multi-crop.""")
 
     # Misc
-    parser.add_argument('--data_path', default=(f'BBBC021_annotated_reproduction.csv'), type=str,
+    parser.add_argument('--data_path', default=(f'/projects/img/GAN_CP/PAPER_2/BBBC021/BBBC021_annotated_no_DMSO _Guy.csv'), type=str,
         help='Please specify path to the ImageNet training data.')
     parser.add_argument('--output_dir', default=".", type=str, help='Path to save logs and checkpoints.')
     parser.add_argument('--saveckp_freq', default=5, type=int, help='Save checkpoint every x epochs.')
@@ -129,7 +129,7 @@ def get_args_parser():
     parser.add_argument('--weak_label_header', default='Unique_Compounds', type=str) # change weak label here (see .csv headers)
     return parser
 
-df = pd.read_csv('BBBC021_annotated_reproduction.csv')
+df = pd.read_csv('.../BBBC021_annotated.csv')
 
 idx_list = []
 weight_list = []
