@@ -35,7 +35,7 @@ python -m torch.distributed.launch --nproc_per_node=2 main_dino.py --arch vit_sm
 [Download weights from here](https://drive.google.com/drive/folders/1y4yzkYQ8g6eytobmfC9mNmist4FfONWS?usp=sharing), store it in the folder `250`.
 
 ## Evaluation
-Run, change the filenames in the code for different pretrained weights:
+Change the filenames in the code for different pretrained weights, run:
 ```
 python evaluation.py
 ```
