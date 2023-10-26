@@ -533,6 +533,8 @@ if __name__ == '__main__':
                     DMSO_features = DMSO_features.cuda()
             
             train_features = correct_tvn(DMSO_features, train_features)
+            np.save(weights+'features.npy', train_features)
+
             nscb_epoch = NSCB_function(train_features, channel, train_epoch)
             tally_epoch.append(nscb_epoch)
             print(tally_epoch)
