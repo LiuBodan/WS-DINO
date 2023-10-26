@@ -11,6 +11,9 @@ Pytorch implementation of [Self-Supervised Learning of Phenotypic Representation
 python -m torch.distributed.launch --nproc_per_node=2 main_dino.py --arch vit_small --data_path /path/to/imagenet/train --output_dir /path/to/saving_dir
 ```
 
+**PRETRAINED WEIGHTS**
+ [Download weights from here](https://drive.google.com/drive/folders/1y4yzkYQ8g6eytobmfC9mNmist4FfONWS?usp=sharing)
+
 **UPDATE**
 
 This paper has been accepted to [LMRL](https://www.lmrl.org/) @ [NeurIPS 2022](https://neurips.cc/). We look forward to presenting in December.
