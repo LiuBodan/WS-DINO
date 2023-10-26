@@ -62,6 +62,7 @@ def extract_feature_pipeline(args, weights,channel):
         print(f"Architecture {args.arch} non supported")
         sys.exit(1)
     model.cuda()
+    weights="training_logs_reproduction/DAPI_weak_compound_DINO_checkpoint.pth"
     utils.load_pretrained_weights(model, weights, args.checkpoint_key, args.arch, args.patch_size)
     model.eval()
 
@@ -486,7 +487,7 @@ if __name__ == '__main__':
     parser.add_argument('--patch_size', default=8, type=int, help='Patch resolution of the model.')
     parser.add_argument("--checkpoint_key", default="teacher", type=str,
         help='Key to use in the checkpoint (example: "teacher")')
-    parser.add_argument('--dump_features', default='features8',
+    parser.add_argument('--dump_features', default='features',
         help='Path where to save computed features, empty for no saving')
     parser.add_argument('--load_features', default=None, help="""If the features have
         already been computed, where to find them.""")
@@ -494,7 +495,7 @@ if __name__ == '__main__':
     parser.add_argument("--dist_url", default="env://", type=str, help="""url used to set up
         distributed training; see https://pytorch.org/docs/stable/distributed.html""")
     parser.add_argument("--local_rank", default=0, type=int, help="Please ignore and do not set this argument.")
-    parser.add_argument('--data_path_train', default=(f'BBBC021_annotated_reproduction.csv'), type=str)
+    parser.add_argument('--data_path_train', default=(f'/BBBC021_annotated_reproduction.csv'), type=str)
     parser.add_argument('--channel_headers', default= ['Image_FileName_DAPI','Image_FileName_Tubulin', 'Image_FileName_Actin'], type=list)
 
     args = parser.parse_args()
@@ -504,20 +505,24 @@ if __name__ == '__main__':
     cudnn.benchmark = True
     
     tally_epoch = []
-    for channel in range(0,2):
+    for channel in range(0,3):
+        print("______________________________________________________________________________")
         print(channel)
-        for train_epoch in range(0,100,5):
+        for train_epoch in [0]:
             if channel == 0:
-                weights = f'DAPI_weak_compound_DINO_checkpoint00{train_epoch}.pth'
+                weights = "250/DAPI_weak_compound_DINO_checkpoint0250.pth"
+                #weights = f'DAPI_weak_compound_DINO_checkpoint00{train_epoch}.pth'
 #                weights = f'DAPI_DINO_checkpoint00{train_epoch}.pth'
 #                weights = f'pretrain_full_checkpoint.pth'
             else:
                 if channel == 1:
-                    weights = f'Tubulin_weak_compound_DINO_checkpoint00{train_epoch}.pth'
+                  weights = "250/Tubulin_weak_compound_DINO_checkpoint0250.pth"
+                    #weights = f'Tubulin_weak_compound_DINO_checkpoint00{train_epoch}.pth'
 #                    weights = f'Tubulin_DINO_checkpoint00{train_epoch}.pth'
 #                    weights = f'pretrain_full_checkpoint.pth'
                 else:
-                    weights = f'Actin_weak_compound_DINO_checkpoint00{train_epoch}.pth'
+                  weights = "250/Actin_weak_compound_DINO_checkpoint0250.pth"
+                    #weights = f'Actin_weak_compound_DINO_checkpoint00{train_epoch}.pth'
 #                    weights = f'Actin_DINO_checkpoint00{train_epoch}.pth'
 #                    weights = f'pretrain_full_checkpoint.pth'
 
