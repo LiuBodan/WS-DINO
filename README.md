@@ -45,3 +45,10 @@ Change the filenames in the code for different pretrained weights, run:
 python evaluation.py
 ```
 
+## Prediction
+Run:
+```
+import numpy as np
+features = np.load('features.npy')
+```
+To load the feature space generated from pretrained weights and do 1-nn clustering
