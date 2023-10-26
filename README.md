@@ -46,6 +46,7 @@ python evaluation.py
 ```
 
 ## Prediction
+[Download the feature spaces from here](https://drive.google.com/drive/folders/1y4yzkYQ8g6eytobmfC9mNmist4FfONWS?usp=sharing)
 Run:
 ```
 import numpy as np
