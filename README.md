@@ -3,8 +3,8 @@
 Pytorch implementation of [Self-Supervised Learning of Phenotypic Representations from Cell Images with Weak Labels](https://arxiv.org/abs/2209.07819)  
 
 **REPRODUCTION**
-- Use 'meta_csv_files/csvGenerator.ipynb' to generate 'loaddata.csv' and 'LoadDataFile.csv' for illumination correction
-- Run 'preprocessing/BBBC021_illuminationCalculate.cpproj', then run 'preprocessing/BBBC021_illuminationApply.cpproj' to generate training dataset
+- Use `meta_csv_files/csvGenerator.ipynb` to generate `loaddata.csv` and `LoadDataFile.csv` for illumination correction
+- Run `preprocessing/BBBC021_illuminationCalculate.cpproj`, then run `preprocessing/BBBC021_illuminationApply.cpproj` to generate training dataset
 - Use python version 3.6, PyTorch version 1.7.1, CUDA 11.0 and torchvision 0.8.2.
 - To run with 2 GPUs as the paper, use:
 ```
